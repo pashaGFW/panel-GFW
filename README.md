@@ -1,67 +1,279 @@
 # Pasha-GFW
 
-🇮🇷 فارسی
-
-Pasha-GFW یک پنل مدیریت اشتراک مبتنی بر Cloudflare Workers است که امکان ساخت و مدیریت کاربران، تولید لینک اشتراک و مشاهده آمار مصرف را فراهم می‌کند.
-
-## امکانات
-
-- مدیریت چند کاربر
-- لینک اشتراک اختصاصی برای هر کاربر
-- پشتیبانی از Clash
-- پشتیبانی از Sing-box
-- پشتیبانی از فرمت Base64
-- نمایش میزان مصرف کاربران
-- محدودیت حجم و زمان انقضا
-- اتصال به تلگرام برای مدیریت و اعلان‌ها
-- ذخیره اطلاعات در Cloudflare D1
-- داشبورد تحت وب
-
-## نصب
-
-1. فایل Worker را در Cloudflare Workers Deploy کنید.
-2. دیتابیس D1 را متصل کنید.
-3. تنظیمات اولیه را انجام دهید.
-4. داشبورد را باز کرده و کاربران را ایجاد کنید.
-
-## هشدار
-
-این پروژه هنوز در حال توسعه است و ممکن است برخی قابلیت‌ها تغییر کنند.
+<p align="center">
+  <h1 align="center">🚀 Pasha-GFW</h1>
+  <p align="center">
+    Cloudflare Workers Based Subscription Panel
+  </p>
+</p>
 
 ---
 
-🇬🇧 English
+## 🇮🇷 معرفی
 
-Pasha-GFW is a Cloudflare Workers based subscription management panel that allows user management, subscription generation, usage monitoring and Telegram integration.
+Pasha-GFW یک پنل مدیریت اشتراک مبتنی بر Cloudflare Workers است که برای مدیریت کاربران، ساخت لینک اشتراک، مشاهده مصرف، تعیین محدودیت حجم و زمان انقضا طراحی شده است.
 
-## Features
+این پروژه بدون نیاز به VPS اجرا می‌شود و از زیرساخت Cloudflare استفاده می‌کند.
 
-- Multi-user management
-- Dedicated subscription links
-- Clash support
-- Sing-box support
-- Base64 subscription output
-- Traffic usage monitoring
-- Expiration and usage limits
-- Telegram integration
-- Cloudflare D1 support
-- Web dashboard
+---
 
-## Installation
+## ✨ امکانات
 
-1. Deploy the worker to Cloudflare Workers.
-2. Connect a D1 database.
-3. Configure the panel.
-4. Create users and manage subscriptions.
+- 👥 مدیریت چند کاربر
+- 📊 نمایش مصرف کاربران
+- ⏳ محدودیت زمانی
+- 📦 محدودیت حجم مصرفی
+- 🔗 لینک اشتراک اختصاصی
+- ⚡ پشتیبانی از Clash
+- ⚡ پشتیبانی از Sing-box
+- ⚡ پشتیبانی از Base64
+- 🤖 اتصال به تلگرام
+- ☁️ ذخیره اطلاعات در Cloudflare D1
+- 🌙 رابط کاربری مدرن و دارک مود
 
-## Status
+---
 
-This project is currently under development and features may change in future releases.
+# 📋 پیش‌نیازها
 
-## License
+قبل از نصب موارد زیر را داشته باشید:
+
+- Cloudflare Account
+- GitHub Account
+- یک دامنه متصل به Cloudflare
+- Wrangler (اختیاری)
+
+---
+
+# ⚙️ آموزش نصب
+
+## مرحله 1 - ساخت Worker
+
+وارد داشبورد Cloudflare شوید.
+
+مسیر:
+
+```
+Workers & Pages
+```
+
+روی:
+
+```
+Create Application
+```
+
+کلیک کنید.
+
+سپس:
+
+```
+Create Worker
+```
+
+را انتخاب کنید.
+
+نام Worker را وارد کنید:
+
+```
+pasha-gfw
+```
+
+سپس Worker را ایجاد کنید.
+
+---
+
+## مرحله 2 - ساخت پایگاه داده D1
+
+از منوی Cloudflare وارد بخش:
+
+```
+Storage & Databases
+```
+
+شوید.
+
+سپس:
+
+```
+D1 SQL Database
+```
+
+را انتخاب کنید.
+
+روی:
+
+```
+Create Database
+```
+
+کلیک کنید.
+
+مثال:
+
+```
+Pasha-GFW-DB
+```
+
+---
+
+## مرحله 3 - اتصال D1 به Worker
+
+وارد Worker شوید.
+
+سپس:
+
+```
+Settings
+```
+
+↓
+
+```
+Bindings
+```
+
+↓
+
+```
+Add Binding
+```
+
+↓
+
+```
+D1 Database
+```
+
+را انتخاب کنید.
+
+نام Binding:
+
+```
+IOT_DB
+```
+
+Database:
+
+```
+Pasha-GFW-DB
+```
+
+سپس ذخیره کنید.
+
+---
+
+## مرحله 4 - قرار دادن کد
+
+فایل:
+
+```
+_worker.js
+```
+
+را باز کنید.
+
+کل محتوای Worker را جایگزین کنید.
+
+سپس:
+
+```
+Deploy
+```
+
+را بزنید.
+
+---
+
+## مرحله 5 - ورود به پنل
+
+پس از Deploy آدرس زیر را باز کنید:
+
+```
+https://YOUR-WORKER.workers.dev/sync/dash
+```
+
+یا مسیر تنظیم شده در پنل.
+
+---
+
+## 🤖 راه‌اندازی تلگرام
+
+یک ربات از:
+
+```
+@BotFather
+```
+
+بسازید.
+
+سپس:
+
+- Bot Token
+- Chat ID
+
+را دریافت کنید.
+
+در پنل وارد بخش تنظیمات شوید و مقادیر را وارد کنید.
+
+---
+
+## 📦 ساخت کاربر
+
+از پنل:
+
+```
+Users
+```
+
+↓
+
+```
+Create User
+```
+
+کاربر جدید بسازید.
+
+برای هر کاربر می‌توانید:
+
+- محدودیت حجم
+- تاریخ انقضا
+- نام کاربری
+- یادداشت
+
+تعریف کنید.
+
+---
+
+## 🔗 دریافت لینک اشتراک
+
+بعد از ساخت کاربر، لینک اختصاصی به صورت:
+
+```
+https://example.workers.dev/sync?sub=username
+```
+
+ایجاد می‌شود.
+
+---
+
+## 🛠️ تکنولوژی‌های استفاده شده
+
+- Cloudflare Workers
+- Cloudflare D1
+- JavaScript
+- TailwindCSS
+- Telegram Bot API
+
+---
+
+## 📄 License
 
 MIT License
 
-## Author
+---
 
-Pasha
+## 👨‍💻 Developer
+
+**Pasha**
+
+Pasha-GFW Project
