@@ -1,4 +1,9 @@
 # Pasha-GFW
+
+<p align="center">
+  <img src="https://i.pinimg.com/originals/5d/98/38/5d9838457a02bd7b108b68e45caa8704.gif" alt="پرچم شیر و خورشید" width="350">
+</p>
+
 <p align="center">
   <h1 align="center">🚀 Pasha-GFW</h1>
   <p align="center">
@@ -8,7 +13,7 @@
 
 ---
 
-## <img src="https://static.wixstatic.com/media/fbe150_de0ae4fc01c348d59b8d27f34a4fbeb5~mv2.png/v1/fill/w_503,h_288,al_c,q_85,enc_auto/Untitled%20design%20(8).png" alt="پرچم شیر و خورشید" width="28" height="16"> معرفی
+## 🦁 معرفی
 
 Pasha-GFW یک پنل مدیریت اشتراک مبتنی بر Cloudflare Workers است که برای مدیریت کاربران، ساخت لینک اشتراک، مشاهده مصرف، تعیین محدودیت حجم و زمان انقضا طراحی شده است.
 این پروژه بدون نیاز به VPS اجرا می‌شود و از زیرساخت Cloudflare استفاده می‌کند.
